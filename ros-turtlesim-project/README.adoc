@@ -1,0 +1,23 @@
+= Turtlesim Shapes
+
+== Turtlesim ile şekil çizimi
+
+* Kullanıcıdan hangi şeklin çizileciği bilgisi istenir. Sadece çember ve kare şekilleri girilebilir.
+
+** Terminale girilebilecek komutlar:
+
+*** Çember şekli için; **"circle"** veya **"çember"**
+
+*** Kare şekli için; **"square"** veya **"kare"**
+
+*** Turtle'ın anlık konumu için; **"k"**
+
+*** Turtle'ı resetlemek için; **"r"**
+
+*** Diğer tüm girişler geçersiz giriş sayılır.
+
+* Şekile göre kenar uzunluğu veya yarıçap bilgileri istenir.
+
+* Girilen şekil turtlesim hareket ettirilerek çizilir.
+
+* Şekil seçimi yapıldıktan sonra ``rospy.set_param`` fonksiyonu ile turtlesim arkaplanına rastgele bir renk atanır.
