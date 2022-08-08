@@ -9,14 +9,14 @@
       <geometry>
         <cylinder length="0.02" radius="0.08"/>
       </geometry>
-      <origin rpy="1.5707 0 0" xyz="0 0.2335 0"/>
+      <origin rpy="1.5707 0 0"/>
     </visual>
   </link>
 
   <joint name="base_to_left_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="0 0.2335 0"/>
   </joint>
 
 
@@ -25,14 +25,14 @@
       <geometry>
         <cylinder length="0.02" radius="0.08"/>
       </geometry>
-      <origin rpy="1.5707 0 0" xyz="0 -0.2335 0"/>
+      <origin rpy="1.5707 0 0"/>
     </visual>
   </link>
 
   <joint name="base_to_right_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="0 -0.2335 0"/>
   </joint>
 
 
@@ -41,14 +41,14 @@
       <geometry>
         <cylinder length="0.03" radius="0.04"/>
       </geometry>
-      <origin rpy="1.5707 0 0" xyz="-0.375 0.170 0"/>
+      <origin rpy="1.5707 0 0"/>
     </visual>
   </link>
 
   <joint name="base_to_left_back_caster_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="left_back_caster_wheel"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="-0.375 0.170 0"/>
   </joint>
 
 
@@ -57,14 +57,14 @@
       <geometry>
         <cylinder length="0.03" radius="0.04"/>
       </geometry>
-      <origin rpy="1.5707 0 0" xyz="-0.375  -0.170 0"/>
+      <origin rpy="1.5707 0 0"/>
     </visual>
   </link>
 
   <joint name="base_to_right_back_caster_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="right_back_caster_wheel"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="-0.375  -0.170 0"/>
   </joint>
 
 
@@ -73,14 +73,14 @@
       <geometry>
         <cylinder length="0.03" radius="0.04"/>
       </geometry>
-      <origin rpy="1.5707 0 0" xyz="0.375  0.170 0"/>
+      <origin rpy="1.5707 0 0"/>
     </visual>
   </link>
 
   <joint name="base_to_left_front_caster_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="left_front_caster_wheel"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="0.375  0.170 0"/>
   </joint>
 
 
@@ -89,14 +89,14 @@
       <geometry>
         <cylinder length="0.03" radius="0.04"/>
       </geometry>
-      <origin rpy="1.5707 0 0" xyz="0.375  -0.170 0"/>
+      <origin rpy="1.5707 0 0"/>
     </visual>
   </link>
 
   <joint name="base_to_right_front_caster_wheel" type="fixed">
     <parent link="right_front_holder"/>
     <child link="right_front_caster_wheel"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="0.375  -0.170 0"/>
   </joint>  
 
 
@@ -105,14 +105,14 @@
       <geometry>
         <box size="0.02 0.08 0.01"/>
       </geometry>
-      <origin rpy="1.5707 0.7853 0" xyz="0.4032  -0.170 0.02828"/>
+      <origin rpy="1.5707 0.7853 0"/>
     </visual>
   </link>
 
   <joint name="base_to_right_front_holder" type="fixed">
     <parent link="base_link"/>
     <child link="right_front_holder"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="0.4032  -0.170 0.02828"/>
   </joint>  
 </robot>
 
