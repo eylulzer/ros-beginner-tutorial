@@ -3,6 +3,9 @@
   <link name="base_link">
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </link>
+  
+
+  <!--left_wheel-->
 
   <link name="left_wheel">
     <visual>
@@ -19,6 +22,7 @@
     <origin xyz="0 0.2335 0"/>
   </joint>
 
+  <!--right_wheel-->
 
   <link name="right_wheel">
     <visual>
@@ -36,6 +40,8 @@
   </joint>
 
 
+  <!--left_back_caster_wheel and holder-->
+
   <link name="left_back_caster_wheel">
     <visual>
       <geometry>
@@ -51,6 +57,8 @@
     <origin xyz="-0.375 0.170 0"/>
   </joint>
 
+
+  <!--right_back_caster_wheel and holder-->
 
   <link name="right_back_caster_wheel">
     <visual>
@@ -68,6 +76,8 @@
   </joint>
 
 
+  <!--left_front_caster_wheel and holder-->
+
   <link name="left_front_caster_wheel">
     <visual>
       <geometry>
@@ -84,6 +94,8 @@
   </joint>
 
 
+  <!--right_front_caster_wheel and holder-->
+
   <link name="right_front_caster_wheel">
     <visual>
       <geometry>
@@ -96,7 +108,7 @@
   <joint name="base_to_right_front_caster_wheel" type="fixed">
     <parent link="right_front_holder"/>
     <child link="right_front_caster_wheel"/>
-    <origin xyz="0.375  -0.170 0"/>
+    <origin xyz="0.0565 0 -0.0565"/>
   </joint>  
 
 
@@ -105,14 +117,14 @@
       <geometry>
         <box size="0.02 0.08 0.01"/>
       </geometry>
-      <origin rpy="1.5707 0.7853 0"/>
+      <origin rpy="1.5707 -0.7853 0" xyz="0.0283 0.0 -0.0283"/>
     </visual>
   </link>
 
   <joint name="base_to_right_front_holder" type="fixed">
     <parent link="base_link"/>
     <child link="right_front_holder"/>
-    <origin xyz="0.4032  -0.170 0.02828"/>
+    <origin xyz="0.3749 -0.170 0.0165"/>
   </joint>  
 </robot>
 
