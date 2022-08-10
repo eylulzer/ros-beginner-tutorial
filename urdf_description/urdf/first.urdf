@@ -33,7 +33,8 @@
     </visual>
   </link>
 
-  <joint name="joint_right_wheel" type="fixed">
+  <joint name="joint_right_wheel" type="continuous">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin xyz="0 -0.2335 0"/>
