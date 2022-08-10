@@ -16,7 +16,7 @@
     </visual>
   </link>
 
-  <joint name="base_to_left_wheel" type="fixed">
+  <joint name="joint_left_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="left_wheel"/>
     <origin xyz="0 0.2335 0"/>
@@ -33,14 +33,14 @@
     </visual>
   </link>
 
-  <joint name="base_to_right_wheel" type="fixed">
+  <joint name="joint_right_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <origin xyz="0 -0.2335 0"/>
   </joint>
 
 
-  <!--left_back_caster_wheel and holder-->
+  <!--left_back_caster_wheel-->
 
   <link name="left_back_caster_wheel">
     <visual>
@@ -51,14 +51,14 @@
     </visual>
   </link>
 
-  <joint name="base_to_left_back_caster_wheel" type="fixed">
+  <joint name="joint_left_back_caster_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="left_back_caster_wheel"/>
     <origin xyz="-0.375 0.170 0"/>
   </joint>
 
 
-  <!--right_back_caster_wheel and holder-->
+  <!--right_back_caster_wheel-->
 
   <link name="right_back_caster_wheel">
     <visual>
@@ -69,14 +69,14 @@
     </visual>
   </link>
 
-  <joint name="base_to_right_back_caster_wheel" type="fixed">
+  <joint name="joint_right_back_caster_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="right_back_caster_wheel"/>
     <origin xyz="-0.375  -0.170 0"/>
   </joint>
 
 
-  <!--left_front_caster_wheel and holder-->
+  <!--left_front_caster_wheel-->
 
   <link name="left_front_caster_wheel">
     <visual>
@@ -87,14 +87,14 @@
     </visual>
   </link>
 
-  <joint name="base_to_left_front_caster_wheel" type="fixed">
+  <joint name="joint_left_front_caster_wheel" type="fixed">
     <parent link="base_link"/>
     <child link="left_front_caster_wheel"/>
     <origin xyz="0.375  0.170 0"/>
   </joint>
 
 
-  <!--right_front_caster_wheel and holder-->
+  <!--right_front_caster_wheel-->
 
   <link name="right_front_caster_wheel">
     <visual>
@@ -105,12 +105,14 @@
     </visual>
   </link>
 
-  <joint name="base_to_right_front_caster_wheel" type="fixed">
+  <joint name="joint_right_front_caster_wheel" type="continuous">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="right_front_holder"/>
     <child link="right_front_caster_wheel"/>
     <origin xyz="0.0565 0 -0.0565"/>
   </joint>  
 
+          <!-- holder -->
 
   <link name="right_front_holder">
     <visual>
@@ -121,10 +123,30 @@
     </visual>
   </link>
 
-  <joint name="base_to_right_front_holder" type="fixed">
-    <parent link="base_link"/>
+  <joint name="joint_right_front_holder" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 1"/>
+    <parent link="right_front_fix_holder"/>
     <child link="right_front_holder"/>
-    <origin xyz="0.3749 -0.170 0.0165"/>
+    <origin xyz="0 0 0"/>
   </joint>  
+
+          <!-- fix holder -->
+
+  <link name="right_front_fix_holder">
+    <visual>
+      <geometry>
+        <box size="0.04 0.04 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="joint_right_front_fix_holder" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_front_fix_holder"/>
+    <origin xyz="0.3749 -0.170 0.0165"/>
+  </joint> 
+
+  
 </robot>
 
