@@ -1,0 +1,587 @@
+<?xml version="1.0" ?>
+<robot name="robot_cleaner_fix" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robot_cleaner_fix_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_cleaner_fix_description)/urdf/robot_cleaner_fix.trans" />
+<xacro:include filename="$(find robot_cleaner_fix_description)/urdf/robot_cleaner_fix.gazebo" />
+
+<link name="base_footprint" />
+
+<joint name="base_footprint_joint" type="fixed">
+  <parent link="base_footprint" />
+  <child link="base_link" />
+</joint>
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.011180184961346859 1.857556735149512e-05 0.17795010903467734" rpy="0 0 0"/>
+    <mass value="8.69547472352218"/>
+    <inertia ixx="0.652363" iyy="0.874564" izz="0.579309" ixy="9.1e-05" iyz="-0.000223" ixz="0.096221"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-5.569637119094001e-07 -0.03991872409872016 -9.199933262774018e-08" rpy="0 0 0"/>
+    <mass value="1.1900191614829423"/>
+    <inertia ixx="0.002126" iyy="0.003545" izz="0.002126" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000447 0.20125 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000447 0.20125 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-5.569637182833704e-07 0.039918724098714914 9.19993327769264e-08" rpy="0 0 0"/>
+    <mass value="1.1900191614829407"/>
+    <inertia ixx="0.002126" iyy="0.003545" izz="0.002126" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000447 -0.20525 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000447 -0.20525 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_arm_1">
+  <inertial>
+    <origin xyz="0.07673142205387917 0.0010630489693319312 -0.014076073167351738" rpy="0 0 0"/>
+    <mass value="0.1270684130523778"/>
+    <inertia ixx="7.4e-05" iyy="0.000206" izz="0.000155" ixy="-0.0" iyz="0.0" ixz="1.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.089553 0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_wheel_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.089553 0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_wheel_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_arm_1">
+  <inertial>
+    <origin xyz="0.07673142165828555 -0.0009094500375780301 -0.01407596822043071" rpy="0 0 0"/>
+    <mass value="0.12706840580817644"/>
+    <inertia ixx="7.4e-05" iyy="0.000206" izz="0.000156" ixy="-0.0" iyz="0.0" ixz="1.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.089553 -0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_wheel_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.089553 -0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_wheel_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_casterarm_1">
+  <inertial>
+    <origin xyz="-0.04101463724684637 0.006381100707153614 0.010896408525965129" rpy="0 0 0"/>
+    <mass value="0.057739704393848006"/>
+    <inertia ixx="3e-05" iyy="8.4e-05" izz="7.9e-05" ixy="1.7e-05" iyz="3e-06" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.129553 -0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_front_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.129553 -0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_front_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_casterarm_1">
+  <inertial>
+    <origin xyz="-0.041014637049509056 -0.006381100481246321 0.010896408436181268" rpy="0 0 0"/>
+    <mass value="0.05773970442715474"/>
+    <inertia ixx="3e-05" iyy="8.4e-05" izz="7.9e-05" ixy="-1.7e-05" iyz="-3e-06" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.129553 0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_front_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.129553 0.18525 -0.069" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_front_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_casterwheel_1">
+  <inertial>
+    <origin xyz="5.352023419724627e-07 -3.8393818688198245e-07 -8.459150663449322e-08" rpy="0 0 0"/>
+    <mass value="0.15265041550606903"/>
+    <inertia ixx="7e-05" iyy="0.000115" izz="7e-05" ixy="-1e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.179558 0.208681 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_front_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.179558 0.208681 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_front_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_rear_casterwheel_1">
+  <inertial>
+    <origin xyz="3.490402556149963e-07 3.8623196862985765e-08 -9.749668981526294e-08" rpy="0 0 0"/>
+    <mass value="0.1526490802875982"/>
+    <inertia ixx="7e-05" iyy="0.000115" izz="7e-05" ixy="-2e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.179741 0.203795 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_rear_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.179741 0.203795 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_rear_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_casterwheel_1">
+  <inertial>
+    <origin xyz="4.969060834192351e-07 6.528189916421567e-08 -5.6359183096474363e-08" rpy="0 0 0"/>
+    <mass value="0.15265022527998973"/>
+    <inertia ixx="7e-05" iyy="0.000115" izz="7e-05" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.179554 -0.209177 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_front_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.179554 -0.209177 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_front_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_rear_casterwheel_1">
+  <inertial>
+    <origin xyz="-4.6445461893140916e-08 -3.883458572218057e-07 -9.96888406060159e-08" rpy="0 0 0"/>
+    <mass value="0.15265062431983312"/>
+    <inertia ixx="7e-05" iyy="0.000115" izz="7e-05" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.179702 -0.197445 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_rear_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.179702 -0.197445 0.014" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_rear_casterwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_rear_casterholder_1">
+  <inertial>
+    <origin xyz="-0.010793558705910228 -6.309798074083384e-05 -0.025862095557405564" rpy="0 0 0"/>
+    <mass value="0.05532656181322749"/>
+    <inertia ixx="4.8e-05" iyy="5.6e-05" izz="4e-05" ixy="0.0" iyz="-0.0" ixz="-1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.219697 -0.1981 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_rear_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.219697 -0.1981 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_rear_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_rear_casterholder_1">
+  <inertial>
+    <origin xyz="-0.01078629940418005 -0.0003977582943001934 -0.02586209411444508" rpy="0 0 0"/>
+    <mass value="0.055326426227370336"/>
+    <inertia ixx="4.8e-05" iyy="5.6e-05" izz="4e-05" ixy="-0.0" iyz="-1e-06" ixz="-1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.219697 0.2019 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_rear_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.219697 0.2019 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_rear_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_casterholder_1">
+  <inertial>
+    <origin xyz="0.010792735282725258 3.9684900523057065e-05 -0.025862090529065164" rpy="0 0 0"/>
+    <mass value="0.05532657913569803"/>
+    <inertia ixx="4.8e-05" iyy="5.6e-05" izz="4e-05" ixy="0.0" iyz="0.0" ixz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.219553 0.20925 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_front_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.219553 0.20925 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_front_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_casterholder_1">
+  <inertial>
+    <origin xyz="0.010791995982969371 -0.00013321474327329663 -0.025862094344746595" rpy="0 0 0"/>
+    <mass value="0.05532656394702597"/>
+    <inertia ixx="4.8e-05" iyy="5.6e-05" izz="4e-05" ixy="0.0" iyz="-0.0" ixz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.219553 -0.20925 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_front_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.219553 -0.20925 -0.054" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_front_casterholder_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_rear_casterarm_1">
+  <inertial>
+    <origin xyz="-0.022585991092101132 -0.09016073028050496 0.0360434093685393" rpy="0 0 0"/>
+    <mass value="0.10465846573520063"/>
+    <inertia ixx="0.0004" iyy="0.000164" izz="0.000432" ixy="-0.000148" iyz="8.7e-05" ixz="2.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.300697 0.0219 -0.024" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_rear_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.300697 0.0219 -0.024" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/left_rear_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_rear_casterarm_1">
+  <inertial>
+    <origin xyz="-0.022585991104744962 0.0901607302736004 0.036043409366065725" rpy="0 0 0"/>
+    <mass value="0.10465846573816248"/>
+    <inertia ixx="0.0004" iyy="0.000164" izz="0.000432" ixy="0.000148" iyz="-8.7e-05" ixz="2.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.300697 -0.0181 -0.024" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_rear_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.300697 -0.0181 -0.024" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/right_rear_casterarm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="-0.00024656703471037655 8.101463944143461e-14 -4.341204437480206e-05" rpy="0 0 0"/>
+    <mass value="0.000665990034610988"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.536118 -0.0 -0.29" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.536118 -0.0 -0.29" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.004999999999996452 2.8819660665305627e-10 -9.490989660854154e-10" rpy="0 0 0"/>
+    <mass value="0.0010000000000000048"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.5115 -0.0 -0.176" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.5115 -0.0 -0.176" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_2">
+  <inertial>
+    <origin xyz="-0.0002499999999916458 8.10140843299223e-14 4.268807529683727e-14" rpy="0 0 0"/>
+    <mass value="0.000665990034610988"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.537 -0.0 -0.425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/camera_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.537 -0.0 -0.425" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/camera_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_3">
+  <inertial>
+    <origin xyz="0.000250000000005246 8.10140843299223e-14 2.5146551507759796e-14" rpy="0 0 0"/>
+    <mass value="0.000665990034610988"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.337 -0.0 -0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/camera_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.337 -0.0 -0.25" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_cleaner_fix_description/meshes/camera_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="left_wheel" type="continuous">
+  <origin xyz="0.09 -0.016 -0.038" rpy="0 0 0"/>
+  <parent link="left_wheel_arm_1"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_wheel" type="continuous">
+  <origin xyz="0.09 0.02 -0.038" rpy="0 0 0"/>
+  <parent link="right_wheel_arm_1"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="left_wheel_arm" type="fixed">
+  <origin xyz="-0.089553 -0.18525 0.069" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_arm_1"/>
+</joint>
+
+<joint name="right_wheel_arm" type="fixed">
+  <origin xyz="-0.089553 0.18525 0.069" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_arm_1"/>
+</joint>
+
+<joint name="right_front_caster_arm" type="fixed">
+  <origin xyz="-0.129553 0.18525 0.069" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_front_casterarm_1"/>
+</joint>
+
+<joint name="left_front_caster_arm" type="fixed">
+  <origin xyz="-0.129553 -0.18525 0.069" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_front_casterarm_1"/>
+</joint>
+
+<joint name="left_front_caster_wheel" type="continuous">
+  <origin xyz="0.039995 0.000569 -0.068" rpy="0 0 0"/>
+  <parent link="left_front_casterholder_1"/>
+  <child link="left_front_casterwheel_1"/>
+  <axis xyz="0.014215 -0.999899 0.0"/>
+</joint>
+
+<joint name="left_rear_caster_wheel" type="continuous">
+  <origin xyz="-0.039956 -0.001895 -0.068" rpy="0 0 0"/>
+  <parent link="left_rear_casterholder_1"/>
+  <child link="left_rear_casterwheel_1"/>
+  <axis xyz="-0.047373 0.998877 -0.0"/>
+</joint>
+
+<joint name="right_front_caster_wheel" type="continuous">
+  <origin xyz="0.039999 -7.3e-05 -0.068" rpy="0 0 0"/>
+  <parent link="right_front_casterholder_1"/>
+  <child link="right_front_casterwheel_1"/>
+  <axis xyz="-0.001824 -0.999998 0.0"/>
+</joint>
+
+<joint name="right_rear_caster_wheel" type="continuous">
+  <origin xyz="-0.039995 -0.000655 -0.068" rpy="0 0 0"/>
+  <parent link="right_rear_casterholder_1"/>
+  <child link="right_rear_casterwheel_1"/>
+  <axis xyz="-0.016384 0.999866 -0.0"/>
+</joint>
+
+<joint name="right_rear_caster_holder" type="continuous">
+  <origin xyz="-0.081 0.18 0.03" rpy="0 0 0"/>
+  <parent link="right_rear_casterarm_1"/>
+  <child link="right_rear_casterholder_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="left_rear_caster_holder" type="continuous">
+  <origin xyz="-0.081 -0.18 0.03" rpy="0 0 0"/>
+  <parent link="left_rear_casterarm_1"/>
+  <child link="left_rear_casterholder_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="left_front_caster_holder" type="continuous">
+  <origin xyz="-0.09 -0.024 -0.015" rpy="0 0 0"/>
+  <parent link="left_front_casterarm_1"/>
+  <child link="left_front_casterholder_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="right_front_caster_holder" type="continuous">
+  <origin xyz="-0.09 0.024 -0.015" rpy="0 0 0"/>
+  <parent link="right_front_casterarm_1"/>
+  <child link="right_front_casterholder_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="left_rear_caster_arm" type="fixed">
+  <origin xyz="0.300697 -0.0219 0.024" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_rear_casterarm_1"/>
+</joint>
+
+<joint name="right_rear_caster_arm" type="fixed">
+  <origin xyz="0.300697 0.0181 0.024" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_rear_casterarm_1"/>
+</joint>
+
+<joint name="cam_front_bottom" type="fixed">
+  <origin xyz="-0.536118 0.0 0.29" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="lidar" type="fixed">
+  <origin xyz="-0.5115 0.0 0.176" rpy="0 0 3.14"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="cam_front_top" type="fixed">
+  <origin xyz="-0.537 0.0 0.425" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_2"/>
+</joint>
+
+<joint name="cam_rear" type="fixed">
+  <origin xyz="0.337 0.0 0.25" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_3"/>
+</joint>
+
+</robot>
