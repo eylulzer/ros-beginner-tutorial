@@ -1,0 +1,11 @@
+axis_linear: 1
+scale_linear: 0.2
+scale_linear_turbo: 0.5
+
+axis_angular: 0
+scale_angular: 0.4
+
+enable_button: 0  # O Button
+enable_turbo_button: 1  # X Button
+lifting_down_button: 8 # Select Button
+lifting_up_button: 9 # Start Button
