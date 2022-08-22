@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>diffamr_control</name>
+  <version>2.0.0</version>
+  <description>The diffamr_control package</description>
+
+  <maintainer email="gizem@todo.todo">gizem</maintainer>
+  <maintainer email="berkeunlu@gmail.com">berke</maintainer>
+ 
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>joy</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>roslint</build_depend>
+  <build_depend>rostest</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+
+  <export>
+  </export>
+</package>

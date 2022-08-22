@@ -1,0 +1,3 @@
+bool isEstopEnable
+bool isMotorEnable
+bool isFrontBumperEnable
