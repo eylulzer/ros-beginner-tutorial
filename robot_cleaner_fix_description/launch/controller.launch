@@ -1,9 +1,0 @@
-<launch>
-
-<rosparam file="$(find robot_cleaner_fix_description)/launch/controller.yaml" command="load"/>
-<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="robot_cleaner_fix" args="left_wheel_position_controller right_wheel_position_controller left_front_caster_wheel_position_controller left_rear_caster_wheel_position_controller right_front_caster_wheel_position_controller right_rear_caster_wheel_position_controller right_rear_caster_holder_position_controller left_rear_caster_holder_position_controller left_front_caster_holder_position_controller right_front_caster_holder_position_controller joint_state_controller "/>
-<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-  <remap from="/joint_states" to="/robot_cleaner_fix/joint_states"/>
-</node>
-
-</launch>
