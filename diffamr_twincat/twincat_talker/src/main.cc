@@ -14,7 +14,7 @@
 
 float rpmgx;
 float rpmgw;
-float rad = 0.17;        // wheel radius
+float rad = 0.085;        // wheel radius
 float multip = 9.549;   // 60/π --- fixed multiplier used to convert from mt/s to rpm 
 
 
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
   diffamr_msgs::DriverVelocityVal msgVel;
 
 
-  ros::Subscriber sub = n.subscribe("/cmd_vel", 1000, teleopCallback);
+  ros::Subscriber sub = n.subscribe("diffamr_diff_drive_controller/cmd_vel", 1000, teleopCallback);
   ros::Publisher position_pub = n.advertise<diffamr_msgs::DriverPositionSteps>(std::string("motor_pos"),10);
   ros::Publisher velocity_pub = n.advertise<diffamr_msgs::DriverVelocityVal>(std::string("motor_vel"),10);
 
