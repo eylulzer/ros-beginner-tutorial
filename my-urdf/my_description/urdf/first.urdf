@@ -53,10 +53,47 @@
   </link>
 
   <joint name="joint_left_back_caster_wheel" type="fixed">
-    <parent link="base_link"/>
+    <parent link="left_back_holder"/>
     <child link="left_back_caster_wheel"/>
-    <origin xyz="-0.375 0.170 0"/>
+    <origin xyz="-0.0565 0 -0.0565"/>
   </joint>
+
+                <!-- left_back_holder -->
+
+  <link name="left_back_holder">
+    <visual>
+      <geometry>
+        <box size="0.02 0.08 0.01"/>
+      </geometry>
+      <origin rpy="1.5707 0.7853 0" xyz="-0.0283 0.0 -0.0283"/>
+    </visual>
+  </link>
+
+  <joint name="left_back_holder" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 1"/>
+    <parent link="left_back_fix_holder"/>
+    <child link="left_back_holder"/>
+    <origin xyz="0 0 0"/>
+  </joint>  
+
+          <!-- left_back_fix holder -->
+
+  <link name="left_back_fix_holder">
+    <visual>
+      <geometry>
+        <box size="0.04 0.04 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="joint_left_back_fix_holder" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_back_fix_holder"/>
+    <origin xyz="-0.3749 0.170 0.0165"/>
+  </joint> 
+
+
 
 
   <!--right_back_caster_wheel-->
@@ -71,10 +108,45 @@
   </link>
 
   <joint name="joint_right_back_caster_wheel" type="fixed">
-    <parent link="base_link"/>
+    <parent link="right_back_holder"/>
     <child link="right_back_caster_wheel"/>
-    <origin xyz="-0.375  -0.170 0"/>
+    <origin xyz="-0.0565 0 -0.0565"/>
   </joint>
+
+              <!-- right_back_holder -->
+
+  <link name="right_back_holder">
+    <visual>
+      <geometry>
+        <box size="0.02 0.08 0.01"/>
+      </geometry>
+      <origin rpy="1.5707 0.7853 0" xyz="-0.0283 0.0 -0.0283"/>
+    </visual>
+  </link>
+
+  <joint name="right_back_holder" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 1"/>
+    <parent link="right_back_fix_holder"/>
+    <child link="right_back_holder"/>
+    <origin xyz="0 0 0"/>
+  </joint>  
+
+          <!-- right_back_fix holder -->
+
+  <link name="right_back_fix_holder">
+    <visual>
+      <geometry>
+        <box size="0.04 0.04 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="joint_right_back_fix_holder" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_back_fix_holder"/>
+    <origin xyz="-0.3749 -0.170 0.0165"/>
+  </joint> 
 
 
   <!--left_front_caster_wheel-->
@@ -89,10 +161,45 @@
   </link>
 
   <joint name="joint_left_front_caster_wheel" type="fixed">
-    <parent link="base_link"/>
+    <parent link="left_front_holder"/>
     <child link="left_front_caster_wheel"/>
-    <origin xyz="0.375  0.170 0"/>
+    <origin xyz="0.0565 0 -0.0565"/>
   </joint>
+
+            <!-- left_front_holder -->
+
+  <link name="left_front_holder">
+    <visual>
+      <geometry>
+        <box size="0.02 0.08 0.01"/>
+      </geometry>
+      <origin rpy="1.5707 -0.7853 0" xyz="0.0283 0.0 -0.0283"/>
+    </visual>
+  </link>
+
+  <joint name="joint_left_front_holder" type="continuous">
+    <axis rpy="0 0 0" xyz="0 0 1"/>
+    <parent link="left_front_fix_holder"/>
+    <child link="left_front_holder"/>
+    <origin xyz="0 0 0"/>
+  </joint>  
+
+          <!-- left_front_fix holder -->
+
+  <link name="left_front_fix_holder">
+    <visual>
+      <geometry>
+        <box size="0.04 0.04 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="joint_left_front_fix_holder" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_front_fix_holder"/>
+    <origin xyz="0.3749 0.170 0.0165"/>
+  </joint> 
 
 
   <!--right_front_caster_wheel-->
@@ -113,7 +220,7 @@
     <origin xyz="0.0565 0 -0.0565"/>
   </joint>  
 
-          <!-- holder -->
+          <!-- right_front_holder -->
 
   <link name="right_front_holder">
     <visual>
@@ -131,7 +238,7 @@
     <origin xyz="0 0 0"/>
   </joint>  
 
-          <!-- fix holder -->
+          <!-- right_front_fix holder -->
 
   <link name="right_front_fix_holder">
     <visual>
