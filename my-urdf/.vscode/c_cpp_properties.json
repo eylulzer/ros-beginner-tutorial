@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/merve/catkin_ws/devel/include/**",
+        "/home/merve/catkin_ws/src/dowaksa_amr-main/cds_driver_package/cds_driver/include/**",
+        "/home/merve/catkin_ws/src/ros-beginner-tutorial/diffamr_3goal/include/**",
+        "/home/merve/catkin_ws/src/ros-beginner-tutorial/diffamr_twincat/diffamr_base/include/**",
+        "/home/merve/catkin_ws/src/ros-beginner-tutorial/diffamr_twincat/diffamr_control/include/**",
+        "/home/merve/catkin_ws/src/Multi-Robot-Coverage-Planning/src/server/cooperative_mapping/frontier_exploration/include/**",
+        "/home/merve/catkin_ws/src/Multi-Robot-Coverage-Planning/src/server/full_coverage_path_planner/include/**",
+        "/home/merve/catkin_ws/src/robovak/robovak_base/include/**",
+        "/home/merve/catkin_ws/src/robovak/robovak_control/include/**",
+        "/home/merve/catkin_ws/src/ros-beginner-tutorial/ros-turtlebot-project/include/**",
+        "/home/merve/catkin_ws/src/ros-beginner-tutorial/ros-turtlesim-project/include/**",
+        "/home/merve/catkin_ws/src/ros-beginner-tutorial/ros_essentials_cpp/include/**",
+        "/home/merve/catkin_ws/src/Multi-Robot-Coverage-Planning/src/simulation/rviz_plugins/include/**",
+        "/home/merve/catkin_ws/src/Multi-Robot-Coverage-Planning/src/simulation/simulation/include/**",
+        "/home/merve/catkin_ws/src/Multi-Robot-Coverage-Planning/src/agent/tracking_pid/include/**",
+        "/home/merve/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/merve/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/merve/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
