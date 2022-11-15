@@ -1,3 +1,0 @@
-bool emergencyButton
-bool safetyBumper
-

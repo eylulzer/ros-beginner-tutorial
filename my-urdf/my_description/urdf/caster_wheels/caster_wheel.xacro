@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="caster_wheel">
+
+    <xacro:property name="length" value="0.02" />
+    <xacro:property name="radius" value="0.08" />
+
+    <xacro:macro name="caster_wheel" params="prefix reflect_x reflect_y">
+        
+        <link name="${prefix}_caster_wheel">
+            <visual>
+                <geometry>
+                    <cylinder length="0.03" radius="0.04"/>
+                </geometry>
+                    <origin rpy="1.5707 0 0"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder length="0.03" radius="0.04"/>
+                </geometry>
+                    <origin rpy="1.5707 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.5"/>
+                <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+            </inertial>
+            <axis xyz="0.0 1.0 0.0"/>
+        </link>
+
+        <joint name="${prefix}_caster_wheel_joint" type="continuous">
+            <parent link="${prefix}_holder"/>
+            <child link="${prefix}_caster_wheel"/>
+            <origin xyz="${reflect_x*0.0565} 0 -0.0565"/>
+            <axis xyz="0 1.0 0"/>
+        </joint>
+
+    </xacro:macro>
+</robot>

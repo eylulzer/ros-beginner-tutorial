@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<rosparam command="load" file="$(find diffamr_bringup)/configs/cob_scan_unifier.yaml"/>
-	<node pkg="cob_scan_unifier" type="scan_unifier_node" name="scan_unifier_node" respawn="false" output="screen" >
-	</node>
-
-</launch>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="first">
+
+  <xacro:include filename="$(find my_description)/urdf/first.gazebo" />
+
+  <xacro:include filename="$(find my_description)/urdf/base/base.xacro"/>
+  <xacro:include filename="$(find my_description)/urdf/wheels/wheel.xacro"/>
+  <xacro:include filename="$(find my_description)/urdf/caster_wheels/caster_wheel.xacro"/>
+  <xacro:include filename="$(find my_description)/urdf/caster_wheels/caster_wheel_holder.xacro"/>
+  <xacro:include filename="$(find my_description)/urdf/caster_wheels/caster_wheel_fix_holder.xacro"/>
+
+  <!--base-->
+
+  <xacro:base/>
+
+  <!--wheels-->   
+
+  <xacro:wheel prefix="left" reflect_y="1"/>
+  <xacro:wheel prefix="right" reflect_y="-1"/>
+
+
+  <!--caster_wheels-->
+
+  <xacro:caster_wheel prefix="left_back" reflect_x="-1" reflect_y="1"/>
+  <xacro:caster_wheel prefix="right_back" reflect_x="-1" reflect_y="-1"/>
+  <xacro:caster_wheel prefix="left_front" reflect_x="1" reflect_y="1"/>
+  <xacro:caster_wheel prefix="right_front" reflect_x="1" reflect_y="-1"/>
+
+
+  <!-- caster_wheel_holder -->
+
+  <xacro:caster_wheel_holder prefix="left_front" reflect_x="1"/>
+  <xacro:caster_wheel_holder prefix="right_front" reflect_x="1"/>
+  <xacro:caster_wheel_holder prefix="left_back" reflect_x="-1"/>
+  <xacro:caster_wheel_holder prefix="right_back" reflect_x="-1"/>
+
+  <!-- caster_wheel_fix_holder -->
+
+  <xacro:caster_wheel_fix_holder prefix="left_front" reflect_x="1" reflect_y="1"/>
+  <xacro:caster_wheel_fix_holder prefix="right_front" reflect_x="1" reflect_y="-1"/>
+  <xacro:caster_wheel_fix_holder prefix="left_back" reflect_x="-1" reflect_y="1"/>
+  <xacro:caster_wheel_fix_holder prefix="right_back" reflect_x="-1" reflect_y="-1"/>
+
+  
+</robot>
