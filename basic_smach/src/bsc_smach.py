@@ -2,6 +2,7 @@
 
 import rospy
 import smach
+import smach_ros
 import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from actionlib_msgs.msg import *
@@ -78,7 +79,7 @@ class Idle(smach.State):
         rospy.loginfo('Idle State')
         r = rospy.Rate(10)
 
-        while True:
+        while not rospy.is_shutdown():
             if self.btn == 1 or self.btn == 2:
                 userdata.goal_output = self.btn
                 return 'drive'
@@ -135,7 +136,7 @@ class Drive(smach.State):
         client.send_goal(goal, done_cb=Drive.done_cb)
         # client.wait_for_result()
 
-        while True:
+        while not rospy.is_shutdown():
 
             if self.btn == 5:
                 client.cancel_goal()
@@ -182,7 +183,7 @@ class Emergency(smach.State):
         
         rospy.loginfo('Emergency State')
 
-        while True:
+        while not rospy.is_shutdown():
             if self.btn == 6:
                 return 'deactivate'
         
@@ -211,7 +212,7 @@ class Charge(smach.State):
         
         rospy.loginfo('Charging..')
         self.chrg = userdata.charge_input
-        while True:
+        while not rospy.is_shutdown():
             self.chrg = self.chrg + 5
             rospy.loginfo(self.chrg)
             if self.chrg >= 95:

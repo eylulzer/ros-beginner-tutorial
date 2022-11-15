@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   smach
+  smach_ros
   message_generation
   std_msgs
 )
