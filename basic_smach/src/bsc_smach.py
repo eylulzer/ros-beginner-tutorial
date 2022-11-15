@@ -193,7 +193,7 @@ class Charge(smach.State):
     def __init__(self):
         smach.State.__init__(self,
                              outcomes=['end','failed','drive'],
-                             input_keys=['charge_input'])
+                             )
 
         self.state = "Charge"
         self.btn = 0
@@ -211,7 +211,6 @@ class Charge(smach.State):
     def execute(self, userdata):
         
         rospy.loginfo('Charging..')
-        self.chrg = userdata.charge_input
         while not rospy.is_shutdown():
             self.chrg = self.chrg + 5
             rospy.loginfo(self.chrg)
@@ -253,7 +252,7 @@ def main():
                                transitions={'end': 'Idle',
                                             'drive': 'Drive',
                                             'failed': 'Emergency'},
-                               remapping={'charge_input': 'goal'})
+                               )
 
 
     sm.execute()

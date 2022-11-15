@@ -17,10 +17,14 @@ def main():
         if button == 1 or button == 2 or button == 5 or button == 6: 
             btn.buttonPressed = button
             pub.publish(btn)
+            btn.buttonPressed = 0
+            pub.publish(btn)
         else:
             btn.buttonPressed = button
             pub2.publish(btn)
             print("--- charge publish --->", button)
+            btn.buttonPressed = 0
+            pub.publish(btn)
 
         
 
