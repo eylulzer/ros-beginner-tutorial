@@ -2,7 +2,7 @@
 
 import rospy
 from dowaksa_amr_msgs.msg import ButtonPress
-import time
+
 
 
 def main():
@@ -23,9 +23,12 @@ def main():
             pub2.publish(btn)
             print("--- charge publish --->", button)
 
-        time.sleep(0.5)
+        d = rospy.Duration(0.1, 0)
+        rospy.sleep(d)
+
         btn.buttonPressed = 0
         pub.publish(btn)
+        pub2.publish(btn)
 
 
 

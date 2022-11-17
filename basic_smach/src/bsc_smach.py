@@ -7,6 +7,7 @@ import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from actionlib_msgs.msg import *
 from basic_smach.msg import ButtonPress
+import check_pos as cp
 
 
 # landmarks = {
@@ -185,22 +186,15 @@ class Drive(smach.State):
             if self.btn == 5:
                 client.cancel_goal()
                 return 'emergency'
-            # elif self.btn == 1 or self.btn == 2:
-            #     userdata.goal_output = self.btn
-            #     return 'failed'
-            elif self.chrg <= 40:
+            elif (0 < self.chrg <= 40) and userdata.goal_input != 3:    #şurda bir tuhaflık var
                 return 'charge'
-            if Drive.goalReached == 'Reached':
-                return 'success'
+            elif Drive.goalReached == 'Reached':
+                if userdata.goal_input == 3:
+                   return 'charge'
+                else: 
+                    return 'success'
             elif Drive.goalReached == 'Failed':
                 return 'failed'
-            # else:
-            #     print("----else---")
-            #     if Drive.goalReached == 'Reached':
-            #         return 'success'
-            #     else:
-            #         userdata.goal_output = self.btn
-            #         return 'failed'
 
     def done_cb(state, result):
         if state == GoalStatus.SUCCEEDED:
@@ -237,6 +231,7 @@ class Charge(smach.State):
     def __init__(self):
         smach.State.__init__(self,
                              outcomes=['end','failed','drive'],
+                             output_keys=['goal_output']
                              )
 
         self.state = "Charge"
@@ -256,15 +251,20 @@ class Charge(smach.State):
         
         rospy.loginfo('Charging..')
         while not rospy.is_shutdown():
-            self.chrg = self.chrg + 5
-            rospy.loginfo(self.chrg)
-            if self.chrg >= 95:
-                return 'end'
-            if self.btn == 5:
-                return 'failed'
-            # elif self.btn == 1 or self.btn == 2:
-            #     userdata.goal_output = self.btn
-            #     return 'drive'
+
+            if cp.checkPose(3):
+                self.chrg = self.chrg + 5
+                rospy.loginfo(self.chrg)
+                if self.chrg >= 95:
+                    return 'end'
+                elif self.btn == 5:
+                    return 'failed'
+                # elif self.btn == 1 or self.btn == 2:
+                #     userdata.goal_output = self.btn
+                #     return 'drive'
+            else:
+                userdata.goal_output = 3
+                return 'drive'
 
 
 def main():
@@ -296,6 +296,7 @@ def main():
                                transitions={'end': 'Idle',
                                             'drive': 'Drive',
                                             'failed': 'Emergency'},
+                                remapping={'goal_output': 'goal'}
                                )
 
 
