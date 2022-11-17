@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
-from dowaksa_amr_msgs.msg import ButtonPress
+from basic_smach.msg import ButtonPress
 
 
 
