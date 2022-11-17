@@ -9,48 +9,92 @@ from actionlib_msgs.msg import *
 from basic_smach.msg import ButtonPress
 
 
+# landmarks = {
+#             1: {id: 1,
+#                 'position':{
+#                     'x': 4.5,
+#                     'y': 1.5,
+#                     'z': 0.0
+#                 },
+#                 'orientation':{
+#                     'w': 0.65,
+#                     'x': 0.0,
+#                     'y': 0.0,
+#                     'z': 0.7
+#                     }
+#                 },
+#             2: {id: 2,
+#                 'position':{
+#                     'x': 2.8,
+#                     'y': 5.1,
+#                     'z': 0.0
+#                 },
+#                 'orientation':{
+#                     'w': 0.4,
+#                     'x': 0.0,
+#                     'y': 0.0,
+#                     'z': -0.9
+#                     }
+#                 },
+#             3: {id: 3,
+#                 'position':{
+#                     'x': -0.06,
+#                     'y': 5.0,
+#                     'z': 0.0
+#                 },
+#                 'orientation':{
+#                     'w': 0.66,
+#                     'x': 0.0,
+#                     'y': 0.0,
+#                     'z': -0.74
+#                     }
+#                 }
+#             }
+
+
+
+#mir landmarks
 landmarks = {
             1: {id: 1,
                 'position':{
-                    'x': 4.5,
-                    'y': 1.5,
+                    'x': 4.24,
+                    'y': -3.98,
                     'z': 0.0
                 },
                 'orientation':{
-                    'w': 0.65,
+                    'w': 0.85,
                     'x': 0.0,
                     'y': 0.0,
-                    'z': 0.7
+                    'z': 0.51
                     }
                 },
             2: {id: 2,
                 'position':{
-                    'x': 2.8,
-                    'y': 5.1,
+                    'x': 2.32,
+                    'y': 1.83,
                     'z': 0.0
                 },
                 'orientation':{
-                    'w': 0.4,
+                    'w': 0.91,
                     'x': 0.0,
                     'y': 0.0,
-                    'z': -0.9
+                    'z': 0.41
                     }
                 },
             3: {id: 3,
                 'position':{
-                    'x': -0.06,
-                    'y': 5.0,
+                    'x': 9.03,
+                    'y': -4.34,
                     'z': 0.0
                 },
                 'orientation':{
-                    'w': 0.66,
+                    'w': 0.71,
                     'x': 0.0,
                     'y': 0.0,
-                    'z': -0.74
+                    'z': 0.7
                     }
                 }
             }
-
 
 class Idle(smach.State):
 
@@ -85,7 +129,7 @@ class Idle(smach.State):
                 return 'drive'
             elif self.btn == 5:
                 return 'emergency'
-            elif self.chrg <= 40:
+            elif 0 < self.chrg <= 40:
                 return 'charge'
             else:
                 r.sleep()
