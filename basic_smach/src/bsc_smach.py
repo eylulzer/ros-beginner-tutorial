@@ -266,6 +266,26 @@ class Charge(smach.State):
                 userdata.goal_output = 3
                 return 'drive'
 
+class Subscribers:
+
+    __instance = None
+
+    def __init__(self):
+
+        
+
+
+        self.__button
+        self.__charge
+        rospy.Subscriber("/buttonPressed",ButtonPress,self.ButtonCb)
+        rospy.Subscriber("/charge",ButtonPress, self.ChargeCb)
+
+    def ButtonCb(self,msg):
+        self.__button = msg.buttonPressed
+
+    def ChargeCb(self,msg):
+        self.__charge = msg.buttonPressed
+
 
 def main():
     rospy.init_node('example_state_machine')
